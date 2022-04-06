@@ -6,7 +6,7 @@ const AddUser = props => {
  };
     return(
     <form onSubmit={addUserHandler}>
-        
+
         <label htmlFor="username">UserName</label>
         <input id="username" type="text"/>
 
@@ -14,7 +14,6 @@ const AddUser = props => {
         <input id="age" type="number"/>
 
         <button type="submit">Add User</button>
-
     </form>
     );
 };
