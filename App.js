@@ -1,48 +1,29 @@
 
-import React from 'react';
-import Expenses from './components/Expense';
-import NewExpense from './components/newExpenses/NewExpense';
+import {Fragment,useState} from "react";
+import Header from "./component/UI/Layout/Header";
+import Meals from "./component/UI/Meals/Meals";
+import Cart from "./component/Cart";
 
 
-function App() {
-//console.log('expenses');
-  const expenses = [
-    {
-      id:'e1',
-      title:'News Paper',
-      amount: 90.00,
-      date:new Date(2020,7,14),
-    },
-
-    {id:'e2', title:'New Tv',amount: 77.00,date:new Date(2022,4,17)},
-    
-    {
-      id:'e3',
-      title:'Car Insurance',
-      amount : 190.00,
-      date:new Date(2020,3,25),
-    },
-
-    {
-      id:'e4',
-      title:'New Desktop',
-      amount : 570.00,
-      date:new Date(2021,2,5),
-    },
-  ];
-
-  const addExpenseHandler = expense =>{
-    console.log('In App.js');
-    console.log(expense);
-  }
-return (
+function App(){
+  const [cartIsShow,setCartIsShow]= useState(false);
   
-    <div>
-      <NewExpense onAddExpenseData = {addExpenseHandler}/>
-      <Expenses items = {expenses} />
-      
-    </div>
-  );
- }
- 
+  const showCartHandler = ()=>{
+    setCartIsShow(true);
+  };
+
+  const hideCartHandler = ()=>{
+     setCartIsShow(false);
+  }
+  return (
+     
+         <Fragment>
+          <Header onShowCart={showCartHandler}/>
+         {cartIsShow && <Cart/>}
+        <main>
+          <Meals/>
+        </main>
+        </Fragment>
+  );   
+}
 export default App;
