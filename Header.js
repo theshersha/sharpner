@@ -1,22 +1,22 @@
-import React ,{ Fragment } from "react";
-import classes from './Header.module.css';
+import './Header.css';
+import { Fragment } from 'react';
+import Button from '../UI/Button/Button';
 
-const Header = props => {         //export header component function
-      return  (                 //return the JSX code
-                              //fragment component as a wrapper which is the root element
-                             //two sibling element header and div
-  <Fragment> 
-      
-      <header className={classes.header}>
-          <h1>Welcome To Hotel Mount View</h1>
-          <button>Cart</button>
-      </header>
+const Header = props =>{
+    return (
+        <Fragment>
+          <header className='header'>
+            <h1>Fansy Mall</h1>
+            <Button>Home</Button>
+            <Button>Store</Button>
+            <Button>About Us</Button>
 
-      <div className = {classes['main-image']}>
-          <img src="https://restaurantindia.s3.ap-south-1.amazonaws.com/s3fs-public/content9442.jpg" alt="order what you want to eat"/>
-      </div>
-  </Fragment>
+          </header>
+          <div className='headerlowerpart'>
+              <div className='headerlowertext'>Shop Anything and get within 3 Days!</div>
+          </div>
+        </Fragment>
       );
 
-}; 
+}
 export default Header;
